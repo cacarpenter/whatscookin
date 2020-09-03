@@ -21,9 +21,13 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'org.liquibase:liquibase-core:3.10.1'
     // https://mvnrepository.com/artifact/postgresql/postgresql
-    implementation 'postgresql:postgresql:9.1-901-1.jdbc4'
+    implementation 'org.postgresql:postgresql:42.2.14'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // https://mvnrepository.com/artifact/javax.inject/javax.inject
+    implementation 'javax.inject:javax.inject:1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
