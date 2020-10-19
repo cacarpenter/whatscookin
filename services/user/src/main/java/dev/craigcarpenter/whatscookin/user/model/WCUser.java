@@ -2,7 +2,7 @@ package dev.craigcarpenter.whatscookin.user.model;
 
 public class WCUser {
     private int id;
-    private String name;
+    private String username;
 
     public int getId() {
         return id;
@@ -13,12 +13,12 @@ public class WCUser {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public WCUser setName(String name) {
-        this.name = name;
+    public WCUser setUsername(String username) {
+        this.username = username;
         return this;
     }
 }
