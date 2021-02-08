@@ -7,16 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ChaosController {
 
-    private final ChaosService chaosService;
+  private final ChaosService chaosService;
 
-    public ChaosController(ChaosService cs) {
-        this.chaosService = cs;
-    }
+  public ChaosController(ChaosService cs) {
+    this.chaosService = cs;
+  }
 
-    @GetMapping("/")
-    public String hello() throws InterruptedException {
-        return this.chaosService.go();
-
-    }
-
+  @GetMapping("/")
+  public String hello() throws InterruptedException {
+    return this.chaosService.go();
+  }
 }
