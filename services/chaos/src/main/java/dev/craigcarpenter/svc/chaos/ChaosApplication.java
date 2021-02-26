@@ -2,12 +2,11 @@ package dev.craigcarpenter.svc.chaos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.metrics.buffering.BufferingApplicationStartup;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.core.metrics.jfr.FlightRecorderApplicationStartup;
 
-@SpringBootApplication
 @ConfigurationPropertiesScan
+@SpringBootApplication
 public class ChaosApplication {
 
   public static void main(String[] args) {
@@ -18,7 +17,8 @@ public class ChaosApplication {
     //
 
     SpringApplication app = new SpringApplication(ChaosApplication.class);
-    app.setApplicationStartup(new FlightRecorderApplicationStartup());
+    //    app.setApplicationStartup(new FlightRecorderApplicationStartup());
+    app.setApplicationStartup(new BufferingApplicationStartup(10000));
     app.run(args);
   }
 }
