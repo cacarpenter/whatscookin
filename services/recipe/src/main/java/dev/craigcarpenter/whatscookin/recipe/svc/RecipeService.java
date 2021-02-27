@@ -1,7 +1,9 @@
 package dev.craigcarpenter.whatscookin.recipe.svc;
 
+import dev.craigcarpenter.whatscookin.recipe.model.Photo;
 import dev.craigcarpenter.whatscookin.recipe.model.Recipe;
 
+import java.io.InputStream;
 import java.util.Optional;
 
 public interface RecipeService {
@@ -12,4 +14,6 @@ public interface RecipeService {
   Optional<Recipe> findRecipe(long id);
 
   boolean deleteRecipe(long id);
+
+  Photo createRecipePhoto(String recipeId, String name, InputStream inputStream);
 }

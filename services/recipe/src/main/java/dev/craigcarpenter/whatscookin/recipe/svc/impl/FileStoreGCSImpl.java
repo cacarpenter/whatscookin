@@ -8,18 +8,16 @@ import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
 
-@Repository("local")
-@ConditionalOnProperty(
-    prefix = "recipe",
-    name = "filestore",
-    havingValue = "local",
-    matchIfMissing = true)
-public class FileStoreLocalFSImpl implements FileStore {
-  private static final Logger log = LoggerFactory.getLogger(FileStoreLocalFSImpl.class);
+@Repository("gcs")
+@ConditionalOnProperty(prefix = "filestore", name = "gcs", havingValue = "gcs")
+public class FileStoreGCSImpl implements FileStore {
+  private static final Logger log = LoggerFactory.getLogger(FileStoreGCSImpl.class);
+
+  //     private static Storage storage = null;
 
   @Override
   public long saveFile(String name, InputStream inputStream) {
-    log.info("TODO Save File {} locally", name);
+    log.info("TODO Save File to GCloud Storage Bucket");
     return 0;
   }
 }

@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import java.util.Optional;
 
 @Repository
-public class IngredientTypePostgresDao implements IngredientTypeDao {
+public class IngredientTypeDaoPostgresImpl implements IngredientTypeDao {
 
   private static final RowMapper<IngredientType> INGREDIENT_TYPE_ROW_MAPPER =
       (rs, rn) ->
@@ -23,7 +23,7 @@ public class IngredientTypePostgresDao implements IngredientTypeDao {
   private final NamedParameterJdbcTemplate jdbcTemplate;
 
   @Inject
-  public IngredientTypePostgresDao(NamedParameterJdbcTemplate jdbcTemplate) {
+  public IngredientTypeDaoPostgresImpl(NamedParameterJdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }
 

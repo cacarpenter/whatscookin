@@ -21,7 +21,12 @@ import java.util.Optional;
 public class IngredientController {
   private static final Logger log = LoggerFactory.getLogger(IngredientController.class);
 
-  @Inject private IngredientService ingredientService;
+  private final IngredientService ingredientService;
+
+  @Inject
+  public IngredientController(IngredientService ingredientService) {
+    this.ingredientService = ingredientService;
+  }
 
   @PostMapping(value = "/ingredients")
   public Ingredient postIngredient(@Validated @RequestBody Ingredient ingredient) {
