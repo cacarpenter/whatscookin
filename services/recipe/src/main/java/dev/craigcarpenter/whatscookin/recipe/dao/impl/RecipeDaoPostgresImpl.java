@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.inject.Inject;
+import java.util.Map;
+import java.util.Optional;
 
 @Repository
 public class RecipeDaoPostgresImpl implements RecipeDao {
@@ -40,5 +42,13 @@ public class RecipeDaoPostgresImpl implements RecipeDao {
           inserted.setId(resultSet.getInt(1));
         });
     return inserted;
+  }
+
+  @Override
+  public Optional<Recipe> find(long id) {
+    return jdbcTemplate
+        .query("SELECT * FROM recipe WHERE id = :id", Map.of("id", id), RECIPE_ROW_MAPPER)
+        .stream()
+        .findFirst();
   }
 }

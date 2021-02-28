@@ -38,7 +38,7 @@ public class RecipeServiceImpl implements RecipeService {
 
   @Override
   public Optional<Recipe> findRecipe(long id) {
-    return Optional.empty();
+    return recipeDao.find(id);
   }
 
   @Override
@@ -47,8 +47,8 @@ public class RecipeServiceImpl implements RecipeService {
   }
 
   @Override
-  public Photo createRecipePhoto(String recipeId, String name, InputStream inputStream) {
-    fileStore.saveFile(recipeId, inputStream);
+  public Photo createRecipePhoto(Long recipeId, String name, InputStream inputStream) {
+    fileStore.saveFile(recipeId + name, inputStream);
     return null;
   }
 }

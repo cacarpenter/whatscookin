@@ -15,5 +15,5 @@ public interface RecipeService {
 
   boolean deleteRecipe(long id);
 
-  Photo createRecipePhoto(String recipeId, String name, InputStream inputStream);
+  Photo createRecipePhoto(Long recipeId, String name, InputStream inputStream);
 }
