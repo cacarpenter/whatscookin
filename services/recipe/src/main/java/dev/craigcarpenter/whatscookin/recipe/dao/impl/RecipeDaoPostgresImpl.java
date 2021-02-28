@@ -51,4 +51,20 @@ public class RecipeDaoPostgresImpl implements RecipeDao {
         .stream()
         .findFirst();
   }
+
+  @Override
+  public Recipe update(Recipe recipe) {
+    jdbcTemplate.update(
+        "UPDATE recipe SET name=:name, description=:desc WHERE id = :id",
+        new MapSqlParameterSource()
+            .addValue("id", recipe.getId())
+            .addValue("desc", recipe.getDescription())
+            .addValue("name", recipe.getName()));
+    return find(recipe.getId()).orElseThrow();
+  }
+
+  @Override
+  public boolean delete(long id) {
+    return jdbcTemplate.update("DELETE FROM recipe WHERE id = :id", Map.of("id", id)) == 1;
+  }
 }

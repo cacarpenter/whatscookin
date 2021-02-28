@@ -33,7 +33,7 @@ public class RecipeServiceImpl implements RecipeService {
 
   @Override
   public Recipe updateRecipe(Recipe recipe) {
-    return null;
+    return recipeDao.update(recipe);
   }
 
   @Override
@@ -43,7 +43,7 @@ public class RecipeServiceImpl implements RecipeService {
 
   @Override
   public boolean deleteRecipe(long id) {
-    return false;
+    return recipeDao.delete(id);
   }
 
   @Override
